@@ -1,5 +1,5 @@
 <div>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -9,12 +9,21 @@
         <li class="nav-item">
           <%= link_to "Home", root_path, class: "nav-link" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "Sign up", sign_up_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Log in</a>
-        </li>
+        <% if Current.user %>
+          <li class="nav-item">
+            <%= button_to "Logout", logout_path, method: :delete %>
+          </li>
+          <li class="nav-item">
+            <label class="form-label text-muted" for="form3Example4c">Logged as: <%= "#{Current.user.email}" %></label>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Sign up", sign_up_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Log in", log_in_path, class: "nav-link" %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </nav>

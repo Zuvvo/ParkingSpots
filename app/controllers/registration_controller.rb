@@ -1,6 +1,10 @@
 class RegistrationController < ApplicationController
   def new
-    @user = User.new
+    if Current.user.present?
+      redirect_to root_path, notice: "Can't enter this page. You are already logged in. Please logout."
+    else
+      @user = User.new
+    end
   end
 
   def create
