@@ -9,6 +9,7 @@ class RegistrationController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    unless @user.nil? then @user.email.downcase! end
     if @user.save
       session[:user_id] = @user.id
       redirect_to root_path, notice: "Account created."

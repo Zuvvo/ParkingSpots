@@ -11,11 +11,9 @@
         </li>
         <% if Current.user %>
           <li class="nav-item">
-            <%= button_to "Logout", logout_path, method: :delete %>
+            <%= link_to "Logout", logout_path, method: :delete, class: "nav-link" %>
           </li>
-          <li class="nav-item">
-            <label class="form-label text-muted" for="form3Example4c">Logged as: <%= "#{Current.user.email}" %></label>
-          </li>
+          <label class="form-label text-muted" for="form3Example4c">Logged as: <%= "#{Current.user.email}" %></label>
         <% else %>
           <li class="nav-item">
             <%= link_to "Sign up", sign_up_path, class: "nav-link" %>
