@@ -15,12 +15,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_205745) do
   enable_extension "plpgsql"
 
   create_table "spots", force: :cascade do |t|
-    t.bigint "user_id", null: false
     t.datetime "book_time"
     t.boolean "is_reserved"
+    t.string "user_mail"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_spots_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -30,5 +29,4 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_205745) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "spots", "users"
 end

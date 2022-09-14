@@ -13,7 +13,6 @@
           <li class="nav-item">
             <%= link_to "Logout", logout_path, method: :delete, class: "nav-link" %>
           </li>
-          <label class="form-label text-muted" for="form3Example4c">Logged as: <%= "#{Current.user.email}" %></label>
         <% else %>
           <li class="nav-item">
             <%= link_to "Sign up", sign_up_path, class: "nav-link" %>
@@ -22,6 +21,11 @@
             <%= link_to "Log in", log_in_path, class: "nav-link" %>
           </li>
         <% end %>
+      </ul>
+      <% if Current.user %>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <label class="form-label text-white" for="form3Example4c">Logged as: <%= "#{Current.user.email}" %></label>
+      <% end %>
       </ul>
     </div>
   </nav>
