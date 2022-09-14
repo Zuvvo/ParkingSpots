@@ -8,11 +8,27 @@ class RegistrationController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
-    unless @user.nil? then @user.email.downcase! end
-    if @user.save
+    user = User.new(user_params)
+    user.email.downcase!
+
+    if user.nil?
+      @user = nil
+      redirect_to root_path
+      flash[:alert] = "Can't create account with given data."
+      return
+    end
+
+    if User.exists?(:email => user.email)
+      @user = nil
+      redirect_to sign_up_path
+      flash[:alert] = "Account with this email already exists."
+      return
+    end
+
+    if user.save
+      @user = user
       session[:user_id] = @user.id
-      redirect_to root_path, notice: "Account created."
+      redirect_to sign_up_path, notice: "Account created."
     else
       render :new, status: :unprocessable_entity
     end
