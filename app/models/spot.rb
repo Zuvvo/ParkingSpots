@@ -8,6 +8,6 @@ class Spot < ApplicationRecord
   end
 
   def self.destroy_spots
-    Spot.all.each {|x| x.destroy }
+    Spot.all.destroy_all
   end
 end

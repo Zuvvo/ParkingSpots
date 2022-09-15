@@ -14,6 +14,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_205745) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "slack_accounts", force: :cascade do |t|
+    t.string "username"
+    t.string "token"
+    t.string "secret"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "spots", force: :cascade do |t|
     t.datetime "book_time"
     t.boolean "is_reserved"
@@ -23,10 +31,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_205745) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email"
+    t.bigint "slack_account_id"
+    t.string "email", null: false
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["slack_account_id"], name: "index_users_on_slack_account_id"
   end
 
+  add_foreign_key "users", "slack_accounts"
 end
