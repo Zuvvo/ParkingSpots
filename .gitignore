@@ -42,5 +42,6 @@ yarn-debug.log*
 .yarn-integrity
 
 /config/credentials/development.key
+/config/credentials/production.key
 /config/localhost.crt
 /config/localhost.key
