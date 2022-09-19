@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   post "log_in", to: "sessions#create"
   delete "logout", to: "sessions#destroy"
 
+  get "/auth/slack/callback", to: "omniauth_callbacks#slack"
+
   resources :spots
 
   root to: "main#index"
