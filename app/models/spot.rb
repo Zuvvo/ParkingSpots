@@ -1,4 +1,5 @@
 class Spot < ApplicationRecord
+  belongs_to :user
 
   def self.create_spots(amount)
     amount.times {
@@ -10,4 +11,5 @@ class Spot < ApplicationRecord
   def self.destroy_spots
     Spot.all.destroy_all
   end
+
 end

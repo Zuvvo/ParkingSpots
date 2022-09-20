@@ -45,8 +45,11 @@ gem "bootsnap", require: false
 gem "webpacker"
 gem 'jquery-rails'
 
-gem 'slack-ruby-client'
-gem 'omniauth-slack'
+gem 'omniauth-oauth2'
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection", "~> 1.0"
 
 # Use Sass to process CSS
 # gem "sassc-rails"
