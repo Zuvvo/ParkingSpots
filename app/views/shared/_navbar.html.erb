@@ -9,9 +9,9 @@
         <li class="nav-item">
           <%= link_to "Home", root_path, class: "nav-link" %>
         </li>
-        <% if Current.user %>
+        <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to "Logout", logout_path, method: :delete, class: "nav-link" %>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link" %>
           </li>
         <% else %>
           <li class="nav-item">
@@ -22,9 +22,9 @@
           </li>
         <% end %>
       </ul>
-      <% if Current.user %>
+      <% if user_signed_in? %>
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <label class="form-label text-white" for="form3Example4c">Logged as: <%= "#{Current.user.email}" %></label>
+        <label class="form-label text-white" for="form3Example4c">Logged as: <%= "#{current_user.email}" %></label>
       <% end %>
       </ul>
     </div>
