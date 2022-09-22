@@ -9,10 +9,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #  super
   # end
 
-  # POST /resource
+  #POST /resource
    def create
      super
-     puts "X"
    end
 
   # GET /resource/edit

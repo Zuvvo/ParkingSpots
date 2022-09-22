@@ -5,19 +5,20 @@ class Users::SessionsController < Devise::SessionsController
 
   # GET /resource/sign_in
   # def new
-  #   super
+  #  super
   # end
 
   # POST /resource/sign_in
-  # def create
+  #def create
   #   super
   # end
 
   # DELETE /resource/sign_out
   # def destroy
-  #   super
-  # end
-  #
+  #  super
+  #  session[:user_uid] = nil
+  #end
+
   def after_sign_out_path_for(_resource_or_scope)
     root_path
   end

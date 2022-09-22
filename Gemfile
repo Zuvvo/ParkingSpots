@@ -44,6 +44,7 @@ gem "bootsnap", require: false
 
 gem "webpacker"
 gem 'jquery-rails'
+gem 'byebug'
 
 gem 'omniauth-oauth2'
 gem 'devise'
