@@ -11,7 +11,7 @@ class User < ApplicationRecord
   # validates :email, presence: true, format: {with: URI::MailTo::EMAIL_REGEXP, message: "must be valid email address"}
   # validates :encrypted_password, presence: true
   validates :nickname, presence: true, uniqueness: {case_sensitive: false }
-  #validate :validate_nickname
+  validate :validate_nickname
   attr_writer :login
 
   def login
