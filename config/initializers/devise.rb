@@ -24,13 +24,13 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  #config.mailer_sender = 'donotreply@example.com'
-  #config.omniauth :google_oauth2, Rails.application.credentials.dig(:google, :client_id), Rails.application.credentials.dig(:google, :client_secret)
+  config.mailer_sender = 'donotreply@example.com'
+  config.omniauth :google_oauth2, Rails.application.credentials.dig(:google, :client_id), Rails.application.credentials.dig(:google, :client_secret)
 
 
   # Configure the class responsible to send e-mails.
-  #config.mailer = 'UserMailer'
-  #config.reset_password_within = 6.hours
+  config.mailer = 'UserMailer'
+  config.reset_password_within = 6.hours
 
   # Configure the parent class responsible to send e-mails.
   # config.parent_mailer = 'ActionMailer::Base'
