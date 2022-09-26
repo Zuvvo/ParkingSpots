@@ -3,7 +3,7 @@
     <%= form_for "Sign up",
                  url: omniauth_authorize_path(resource_name, provider),
                  method: :post do |form| %>
-      <%= form.submit "Sign up", type: "image", src: url_for("/assets/btn_google_signin_dark_focus_web.png")%><br />
+      <%= form.submit "Sign up", type: "image", src: image_path('btn_google_signin_dark_focus_web.png') %><br />
     <% end %>
   <% end %>
 <% end %>
