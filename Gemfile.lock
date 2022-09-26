@@ -254,7 +254,7 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
-    tzinfo-data (1.2022.3)
+    tzinfo-data (1.2022.4)
       tzinfo (>= 1.0.0)
     version_gem (1.1.1)
     warden (1.2.9)
@@ -302,6 +302,8 @@ DEPENDENCIES
   omniauth-rails_csrf_protection (~> 1.0)
   pg
   puma (~> 5.0)
+  rack (~> 2.2)
+  rack-protection (~> 2.2)
   rails (~> 7.0.3, >= 7.0.3.1)
   selenium-webdriver
   sprockets-rails
