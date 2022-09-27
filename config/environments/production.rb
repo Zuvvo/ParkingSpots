@@ -75,7 +75,6 @@ Rails.application.configure do
     :user_name => Rails.application.credentials.dig(:mailer, :gmail_user_name),
     :password => Rails.application.credentials.dig(:mailer, :gmail_password),
     :address => 'smtp.gmail.com',
-    :domain => 'smtp.mailtrap.io',
     :port => 587,
     :authentication => 'plain', #:cram_md5
     :enable_starttls_auto => true
