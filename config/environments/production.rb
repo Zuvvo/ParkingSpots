@@ -67,7 +67,7 @@ Rails.application.configure do
   # config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = {host: host}
+  config.action_mailer.default_url_options = {host: "https://parking-spots-zuvvo.herokuapp.com/"}
   config.action_mailer.perform_caching = false
 
   config.action_mailer.delivery_method = :smtp
@@ -77,7 +77,8 @@ Rails.application.configure do
     :address => 'smtp.gmail.com',
     :domain => 'smtp.mailtrap.io',
     :port => 587,
-    :authentication => 'plain' #:cram_md5
+    :authentication => 'plain', #:cram_md5
+    :enable_starttls_auto => true
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
