@@ -67,17 +67,17 @@ Rails.application.configure do
   # config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = {host: 'localhost', port: 3000}
+  config.action_mailer.default_url_options = {host: host}
   config.action_mailer.perform_caching = false
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :user_name => Rails.application.credentials.dig(:mailer, :user_name),
-    :password => Rails.application.credentials.dig(:mailer, :password),
-    :address => 'smtp.mailtrap.io',
+    :user_name => Rails.application.credentials.dig(:mailer, :gmail_user_name),
+    :password => Rails.application.credentials.dig(:mailer, :gmail_password),
+    :address => 'smtp.gmail.com',
     :domain => 'smtp.mailtrap.io',
-    :port => '2525',
-    :authentication => :cram_md5
+    :port => 587,
+    :authentication => 'plain' #:cram_md5
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
