@@ -5,11 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:google_oauth2]
 
-  # has_secure_password
-  # has_many :spots
-
-  # validates :email, presence: true, format: {with: URI::MailTo::EMAIL_REGEXP, message: "must be valid email address"}
-  # validates :encrypted_password, presence: true
   validates :nickname, presence: true, uniqueness: {case_sensitive: false }
   validate :validate_nickname
   attr_writer :login
@@ -24,6 +19,12 @@ class User < ApplicationRecord
     end
   end
 
+  def self.different_provider_user_registered?(auth)
+    user = User.find_by("email = ? OR nickname = ?", auth.info.email, auth.info.name)
+    user != nil && (user.provider != auth.provider || user.uid != auth.uid)
+  end
+
+
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
@@ -34,6 +35,7 @@ class User < ApplicationRecord
   end
 
   def self.from_omniauth(auth)
+    return if different_provider_user_registered?(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]

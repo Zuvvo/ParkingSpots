@@ -10,6 +10,12 @@
   </div>>
 <%end %>
 
+<% if flash[:success] %>
+  <div class="alert alert-success mt-4" role ="alert">
+    <%= flash[:success] %>
+  </div>>
+<%end %>
+
 <% if flash[:logged] %>
   <div class="alert alert-success" role ="alert">
     <%= flash[:logged] %>
