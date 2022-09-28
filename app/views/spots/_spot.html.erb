@@ -2,6 +2,16 @@
   <td><%= spot.id %></td>
   <td><%= spot.book_time %></td>
   <td>date</td>
-  <td>user</td>
-  <td>A B C D</td>
+  <td>
+    <% unless spot.user.nil? %>
+      <%= spot.user.nickname %>
+    <% end %>
+  </td>
+  <% if controller_name == 'main' %>
+    <% if current_user.nil? %>
+      <td></td>
+    <% else %>
+      <td><%=  link_to "View & Edit", edit_spot_path(spot) %></td>
+    <%end %>
+  <% end %>
 </tr>
