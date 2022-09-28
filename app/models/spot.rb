@@ -1,9 +1,9 @@
 class Spot < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, optional: true
 
   def self.create_spots(amount)
     amount.times {
-      spot = Spot.new(is_reserved: false)
+      spot = Spot.new
       spot.save!
     }
   end

@@ -16,7 +16,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_19_153742) do
 
   create_table "spots", force: :cascade do |t|
     t.datetime "book_time"
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_spots_on_user_id"
