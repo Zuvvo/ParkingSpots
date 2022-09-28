@@ -6,9 +6,9 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations',
   }
 
-  get "/auth/slack/callback", to: "omniauth_callbacks#slack"
 
   resources :spots
+  patch "/spots/:id/edit", to: "spots#update"
 
   root to: "main#index"
 

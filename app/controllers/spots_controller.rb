@@ -3,16 +3,8 @@ class SpotsController < ApplicationController
   #before_action :require_user_logged_in!
   before_action :set_spot, only: [:show, :edit, :update, :destroy]
 
-  def index
-
-  end
-
-  def edit
-
-  end
-
-  def book
-
+  def update
+    redirect_to root_path, notice: "todo: parking spot edit data"
   end
 
   def set_spot
