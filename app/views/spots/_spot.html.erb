@@ -1,9 +1,12 @@
 <tr>
   <td><%= spot.id %></td>
-  <td><%= spot.book_time %></td>
-  <td>date</td>
   <td>
-    <% unless spot.user.nil? %>
+    <% if spot.is_reserved? %>
+      <%= spot.book_time_end_in_local_time %>
+    <% end %>
+  </td>
+  <td>
+    <% if spot.is_reserved? %>
       <%= spot.user.nickname %>
     <% end %>
   </td>
