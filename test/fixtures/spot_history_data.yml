@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  spot: one
+  reservation_time: 1
+  user_nickname: MyString
+  action: 1
+
+two:
+  spot: two
+  reservation_time: 1
+  user_nickname: MyString
+  action: 1

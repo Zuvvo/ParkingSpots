@@ -53,4 +53,14 @@
   <% if @spot.is_reserved? && !current_user.nil? && current_user.id == @spot.user_id %>
     <%= button_to "Cancel reservation", @spot, method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } }, class: "btn btn-danger" %>
   <% end %>
+
+  <% historyData = SpotHistoryData.select { |x| x.spot_id == @spot.id} %>
+  <% historyData.sort_by {|x| x['created_at']} %>
+  <% if historyData.count > 0 %>
+    <br>
+    History:
+    <% historyData.each do |y| %>
+      <%= render y %>
+    <% end %>
+  <% end %>
 </div>

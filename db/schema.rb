@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_28_195014) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_30_095233) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "spot_history_data", force: :cascade do |t|
+    t.bigint "spot_id", null: false
+    t.integer "reservation_time"
+    t.string "user_nickname"
+    t.integer "action"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["spot_id"], name: "index_spot_history_data_on_spot_id"
+  end
 
   create_table "spots", force: :cascade do |t|
     t.datetime "book_time"
@@ -43,5 +53,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_28_195014) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "spot_history_data", "spots"
   add_foreign_key "spots", "users"
 end

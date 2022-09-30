@@ -11,7 +11,8 @@ class SpotsController < ApplicationController
       render :edit
     else
       time_in_hours = days * 24 + hours
-      @spot.update(book_time: Time.now, user_id: current_user.id, reservation_time: time_in_hours)
+      @spot.set_reservation(current_user, time_in_hours)
+
       redirect_to root_path, notice: "Parking spot #{@spot.id} reserved from #{@spot.book_time_start_in_local_time} to #{@spot.book_time_end_in_local_time}"
     end
 

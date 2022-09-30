@@ -1,0 +1,7 @@
+<br><% case spot_history_data.action.to_sym when :reserved %>
+    <%= "Spot has been reserved from #{format_date(spot_history_data.created_at)} to #{format_date(spot_history_data.created_at + spot_history_data.reservation_time.hours)} by #{spot_history_data.user_nickname}"%>
+  <% when :canceled %>
+  <%= "Spot reservation has been canceled at #{format_date(spot_history_data.created_at)} by #{spot_history_data.user_nickname}"%>
+  <% when :expired %>
+    444
+  <% end %>

@@ -17,7 +17,18 @@ class Spot < ApplicationRecord
   end
 
   def cancel_reservation
+    SpotHistoryData.new(
+      spot: self, user_nickname: user.nickname, action: :canceled).save!
+
     update(book_time: nil, user_id: nil, reservation_time: nil)
+  end
+
+  def set_reservation(user, time_in_hours)
+    SpotHistoryData.new(
+      spot: self, reservation_time: time_in_hours,
+      user_nickname: user.nickname, action: :reserved).save!
+
+    update(book_time: Time.now, user_id: user.id, reservation_time: time_in_hours)
   end
 
   def book_time_end_in_local_time
