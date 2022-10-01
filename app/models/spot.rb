@@ -27,7 +27,7 @@ class Spot < ApplicationRecord
     SpotHistoryData.new(
       spot: self, reservation_time: time_in_hours,
       user_nickname: user.nickname, action: :reserved).save!
-    SpotJob.set(wait_until: Time.now + time_in_hours.hours).perform_later(self)
+    SpotJob.set(wait_until: (Time.now + time_in_hours.hours)).perform_later(self)
     update(book_time: Time.now, user_id: user.id, reservation_time: time_in_hours)
   end
 
