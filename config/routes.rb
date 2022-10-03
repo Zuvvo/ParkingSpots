@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations',
   }
 
+  get "about", to: "about#index"
 
   resources :spots
   patch "/spots/:id/edit", to: "spots#update"

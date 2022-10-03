@@ -1,6 +1,6 @@
 class SpotsController < ApplicationController
 
-  #before_action :require_user_logged_in!
+  before_action :require_user_logged_in!
   before_action :set_spot, only: [:show, :edit, :update, :destroy]
 
   def update
@@ -15,8 +15,10 @@ class SpotsController < ApplicationController
 
       redirect_to root_path, notice: "Parking spot #{@spot.id} reserved from #{@spot.book_time_start_in_local_time} to #{@spot.book_time_end_in_local_time}"
     end
+  end
 
-    #render plain: params
+  def require_user_logged_in!
+    redirect_to root_path, alert: "You must be signed in to do that." if current_user.nil?
   end
 
   def destroy
