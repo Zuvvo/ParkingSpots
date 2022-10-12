@@ -1,0 +1,25 @@
+<%= form_with(model: message) do |form| %>
+  <% if message.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(message.errors.count, "error") %> prohibited this message from being saved:</h2>
+
+      <ul>
+        <% message.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="d-flex flex-row align-items-center mb-4">
+    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+    <div class="form-outline flex-fill mb-0">
+      <%= form.text_area :body, class: "form-control" %>
+    </div>
+  </div>
+
+  <div>
+    <%= form.hidden_field :spot_id, :value => @spot.id %>
+    <%= form.submit "Create Message", class: "btn btn-primary btn-lg" %>
+  </div>
+<% end %>

@@ -1,0 +1,9 @@
+<h1><%= "Post your message for other users. Spot #{@spot.id}" %></h1>
+
+<%= render "form", message: @message %>
+
+<br>
+
+<div>
+  <%= button_to "Back to spot view", edit_spot_path(@spot), method: :get, class: "btn btn-secondary" %>
+</div>

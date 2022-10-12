@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   get "about", to: "about#index"
 
+  resources :messages
   resources :spots
   patch "/spots/:id/edit", to: "spots#update"
 
