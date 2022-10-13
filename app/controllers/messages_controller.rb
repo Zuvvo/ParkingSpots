@@ -23,13 +23,9 @@ class MessagesController < ApplicationController
 
   # POST /messages or /messages.json
   def create
-    #byebug
-
-    # byebug
     @message = Message.new(message_params)
     @message.user = current_user
 
-    #byebug
     respond_to do |format|
       if @message.save
         format.html { redirect_to edit_spot_path(@message.spot), notice: "Message was successfully created." }

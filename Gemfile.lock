@@ -100,7 +100,9 @@ GEM
     faraday (2.6.0)
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
-    faraday-net_http (3.0.0)
+    faraday-net_http (3.0.1)
+    ffi (1.15.5)
+    ffi (1.15.5-x64-mingw-ucrt)
     globalid (1.0.0)
       activesupport (>= 5.0)
     hashie (5.0.0)
@@ -172,8 +174,8 @@ GEM
       actionpack (>= 4.2)
       omniauth (~> 2.0)
     orm_adapter (0.5.0)
-    pg (1.4.3)
-    pg (1.4.3-x64-mingw-ucrt)
+    pg (1.4.4)
+    pg (1.4.4-x64-mingw-ucrt)
     public_suffix (5.0.0)
     puma (5.6.5)
       nio4r (~> 2.0)
@@ -246,13 +248,13 @@ GEM
       railties (>= 6.0.0)
     thor (1.2.1)
     timeout (0.3.0)
-    turbo-rails (1.3.0)
+    turbo-rails (1.3.1)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
       railties (>= 6.0.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
-    tzinfo-data (1.2022.4)
+    tzinfo-data (1.2022.5)
       tzinfo (>= 1.0.0)
     version_gem (1.1.1)
     warden (1.2.9)
@@ -291,6 +293,7 @@ DEPENDENCIES
   capybara
   debug
   devise
+  ffi
   importmap-rails
   jbuilder
   jquery-rails

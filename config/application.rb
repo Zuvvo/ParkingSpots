@@ -20,3 +20,7 @@ module ParkingSpots
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end
+
+ActiveSupport::Inflector.inflections do |inflect|
+  inflect.irregular 'spot_history_data', 'spot_history_data'
+end

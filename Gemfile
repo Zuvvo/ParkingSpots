@@ -45,6 +45,8 @@ gem "webpacker"
 gem 'jquery-rails'
 gem 'byebug'
 
+gem 'ffi'
+
 gem 'omniauth-oauth2'
 gem 'devise'
 gem 'omniauth'
