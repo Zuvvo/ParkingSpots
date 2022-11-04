@@ -1,24 +1,22 @@
-# README
+## About
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This website was created in purpose of learning basic Ruby on Rails functionalities and its gems.
 
-Things you may want to cover:
+After singing in you can book virtual parking spot for given amount of time or cancel your reservation.
 
-* Ruby version
+## Devise gem extended features
 
-* System dependencies
+There are bunch of simple registration features implemented with usage of Devise gem:
 
-* Configuration
+* signing up with google or your email
+* Mailer set up for email confirmation (check spam folder)
+* Resetting password and recovering your account
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Application features
+* parking spots and their state displayed on main page
+* option to book selected parking spot after signing in
+* user actions stored in database (postgres) for displaying history of spot actions
+* cancelling a reservation
+* background job for freeing up parking spot after reservation expires (redis + sidekiq)
+* catching emails with mailtrap in development mode
+* adding user comments for parking spots
