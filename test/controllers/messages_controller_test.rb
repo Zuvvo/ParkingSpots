@@ -2,6 +2,8 @@ require "test_helper"
 
 class MessagesControllerTest < ActionDispatch::IntegrationTest
   setup do
+    #Spot.create_spots(10)
+    sign_in users(:one)
     @message = messages(:one)
   end
 
