@@ -4,6 +4,8 @@ This website was created in purpose of learning basic Ruby on Rails functionalit
 
 After singing in you can book virtual parking spot for given amount of time or cancel your reservation.
 
+https://parking-spots-zuvvo.herokuapp.com/
+
 ## Devise gem extended features
 
 There are bunch of simple registration features implemented with usage of Devise gem:
