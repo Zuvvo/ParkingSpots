@@ -41,7 +41,6 @@ gem 'tzinfo-data'
 
 # Reduces boot times through caching; required in config/boot.rb
 
-gem "webpacker"
 gem 'jquery-rails'
 gem 'byebug'
 
